@@ -2,14 +2,11 @@ package org.eclipse.scout.contacts.client.person;
 
 import org.eclipse.scout.contacts.client.common.AbstractUrlImageField;
 import org.eclipse.scout.contacts.client.common.CountryLookupCall;
-import org.eclipse.scout.contacts.client.common.PictureUrlForm;
 import org.eclipse.scout.contacts.client.person.PersonForm.MainBox.CancelButton;
 import org.eclipse.scout.contacts.client.person.PersonForm.MainBox.OkButton;
 import org.eclipse.scout.contacts.shared.Icons;
 import org.eclipse.scout.contacts.shared.person.*;
 import org.eclipse.scout.rt.client.dto.FormData;
-import org.eclipse.scout.rt.client.ui.action.menu.AbstractMenu;
-import org.eclipse.scout.rt.client.ui.action.menu.IMenu;
 import org.eclipse.scout.rt.client.ui.form.AbstractForm;
 import org.eclipse.scout.rt.client.ui.form.AbstractFormHandler;
 import org.eclipse.scout.rt.client.ui.form.IForm;
@@ -54,7 +51,6 @@ import org.eclipse.scout.rt.platform.classid.ClassId;
 import org.eclipse.scout.rt.platform.exception.VetoException;
 import org.eclipse.scout.rt.platform.text.TEXTS;
 import org.eclipse.scout.rt.platform.util.StringUtility;
-import org.eclipse.scout.rt.platform.util.collection.OrderedCollection;
 import org.eclipse.scout.rt.shared.services.common.code.ICodeType;
 import org.eclipse.scout.rt.shared.services.lookup.ILookupCall;
 
