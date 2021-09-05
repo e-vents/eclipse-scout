@@ -9,6 +9,7 @@ import org.eclipse.scout.contacts.shared.Icons;
 import org.eclipse.scout.contacts.shared.person.*;
 import org.eclipse.scout.rt.client.dto.FormData;
 import org.eclipse.scout.rt.client.ui.action.menu.AbstractMenu;
+import org.eclipse.scout.rt.client.ui.action.menu.IMenu;
 import org.eclipse.scout.rt.client.ui.form.AbstractForm;
 import org.eclipse.scout.rt.client.ui.form.AbstractFormHandler;
 import org.eclipse.scout.rt.client.ui.form.IForm;
@@ -53,6 +54,7 @@ import org.eclipse.scout.rt.platform.classid.ClassId;
 import org.eclipse.scout.rt.platform.exception.VetoException;
 import org.eclipse.scout.rt.platform.text.TEXTS;
 import org.eclipse.scout.rt.platform.util.StringUtility;
+import org.eclipse.scout.rt.platform.util.collection.OrderedCollection;
 import org.eclipse.scout.rt.shared.services.common.code.ICodeType;
 import org.eclipse.scout.rt.shared.services.lookup.ILookupCall;
 
@@ -228,7 +230,7 @@ public class PersonForm extends AbstractForm {
     public class MainBox extends AbstractGroupBox {
 
         /*
-        Override
+        @Override
         protected void injectMenusInternal(OrderedCollection<IMenu> menus) {
             BEANS.get(ContactsHelper.class).injectReadOnlyMenu(menus);
         }
@@ -299,35 +301,6 @@ public class PersonForm extends AbstractForm {
                 protected String getConfiguredImageId() {
                     return Icons.User;
                 }
-                // end::pictureField[]
-
-                @Order(10)
-                @ClassId("0a94ed5e-f35a-4959-ae6d-54de65187baf")
-                public class EditURLMenu extends AbstractMenu {
-
-                    @Override
-                    protected String getConfiguredText() {
-                        return TEXTS.get("EditURL");
-                    }
-
-                    @Override
-                    protected void execAction() {
-                        String oldUrl = getPictureUrlField().getValue();
-                        PictureUrlForm form = new PictureUrlForm();
-
-                        if (StringUtility.hasText(oldUrl)) {
-                            form.getUrlField().setValue(oldUrl);
-                        }
-
-                        form.startModify();
-                        form.waitFor();
-
-                        if (form.isFormStored()) {
-                            getPictureUrlField().setValue(form.getUrlField().getValue());
-                        }
-                    }
-                }
-                // tag::pictureField[]
 
                 protected void updateImage(String url) {
                     setImageUrl(url);

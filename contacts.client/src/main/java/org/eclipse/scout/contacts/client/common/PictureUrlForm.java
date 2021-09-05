@@ -93,7 +93,7 @@ public class PictureUrlForm extends AbstractForm {
                         HTML.fragment(
                             HTML.icon(Icons.Info),
                             HTML.bold(" " + TEXTS.get("PleaseNote") + ": "),
-                            TEXTS.get("SecurityUrlRestrictedMsg")).toHtml()
+                            TEXTS.get("SecurityUrlRestrictedMs")).toHtml()
                     );
                 }
             }
