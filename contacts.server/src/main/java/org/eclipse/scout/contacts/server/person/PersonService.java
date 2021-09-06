@@ -14,13 +14,20 @@ import java.util.UUID;
 
 public class PersonService implements IPersonService {
     @Override
-    public PersonTablePageData getPersonTableData(SearchFilter filter) {
+    public PersonTablePageData getPersonTableData(SearchFilter filter, String organizationId) {
 
         PersonTablePageData pageData = new PersonTablePageData();
 
-        // added following the tutorial #sec-contacts_jdbc_fetching_data
-        String sql = SQLs.PERSON_PAGE_SELECT + SQLs.PERSON_PAGE_DATA_SELECT_INTO;
-        SQL.selectInto(sql, new NVPair("page", pageData));
+        StringBuilder sql = new StringBuilder(SQLs.PERSON_PAGE_SELECT);
+
+        // if an organization is defined, restrict result set to persons that are linked to it
+        if (StringUtility.hasText(organizationId)) {
+            sql.append(String.format("WHERE LOWER(organization_id) LIKE LOWER('%s') ", organizationId));
+        }
+
+        sql.append(SQLs.PERSON_PAGE_DATA_SELECT_INTO);
+        SQL.selectInto(sql.toString(), new NVPair("page", pageData));
+
         return pageData;
     }
 

@@ -2,6 +2,7 @@ package org.eclipse.scout.contacts.client.person;
 
 import org.eclipse.scout.contacts.client.common.CountryLookupCall;
 import org.eclipse.scout.contacts.client.person.PersonTablePage.Table;
+import org.eclipse.scout.contacts.shared.organization.OrganizationLookupCall;
 import org.eclipse.scout.contacts.shared.person.IPersonService;
 import org.eclipse.scout.contacts.shared.person.PersonTablePageData;
 import org.eclipse.scout.rt.client.dto.Data;
@@ -28,6 +29,18 @@ import java.util.Set;
 @Data(PersonTablePageData.class)
 @ClassId("3d57b435-e01d-4df3-be34-ab9c32710576")
 public class PersonTablePage extends AbstractPageWithTable<Table> {
+
+    // This property lets the person page remember an organization key
+    private String organizationId;
+
+    public String getOrganizationId() {
+        return organizationId;
+    }
+
+    public void setOrganizationId(String organizationId) {
+        this.organizationId = organizationId;
+    }
+
     @Override
     protected boolean getConfiguredLeaf() {
         return true;
@@ -35,7 +48,8 @@ public class PersonTablePage extends AbstractPageWithTable<Table> {
 
     @Override
     protected void execLoadData(SearchFilter filter) {
-        importPageData(BEANS.get(IPersonService.class).getPersonTableData(filter));
+        importPageData(BEANS.get(IPersonService.class)
+            .getPersonTableData(filter, getOrganizationId())); // Provides the organization key to the person search on the backend server
     }
 
     @Override
@@ -65,7 +79,7 @@ public class PersonTablePage extends AbstractPageWithTable<Table> {
             /*
             @Override
             protected Set<? extends IMenuType> getConfiguredMenuTypes() {
-                return org.eclipse.scout.rt.platform.util.CollectionUtility.hashSet(org.eclipse.scout.rt.client.ui.action.menu.TableMenuType.SingleSelection, org.eclipse.scout.rt.client.ui.action.menu.TableMenuType.MultiSelection);
+                return TableMenuType.SingleSelection, TableMenuType.MultiSelection);
             }
              */
 
@@ -97,6 +111,8 @@ public class PersonTablePage extends AbstractPageWithTable<Table> {
             @Override
             protected void execAction() {
                 PersonForm form = new PersonForm();
+                // if the user creates a new person below an organization pre-fill the corresponding field
+                form.getOrganizationField().setValue(getOrganizationId());
                 form.addFormListener(new PersonFormListener());
 
                 form.startNew();
@@ -299,7 +315,7 @@ public class PersonTablePage extends AbstractPageWithTable<Table> {
 
         @Order(9000)
         @ClassId("4eb95b89-a409-457d-9269-12eeaaa013cd")
-        public class OrganizationColumn extends AbstractStringColumn {
+        public class OrganizationColumn extends AbstractSmartColumn<String> {
             @Override
             protected String getConfiguredHeaderText() {
                 return TEXTS.get("Organization");
@@ -313,6 +329,11 @@ public class PersonTablePage extends AbstractPageWithTable<Table> {
             @Override
             protected int getConfiguredWidth() {
                 return 100;
+            }
+
+            @Override
+            protected Class<? extends ILookupCall<String>> getConfiguredLookupCall() {
+                return OrganizationLookupCall.class;
             }
         }
     }

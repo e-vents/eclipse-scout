@@ -7,8 +7,10 @@ import org.eclipse.scout.contacts.client.common.AbstractUrlImageField;
 import org.eclipse.scout.contacts.client.person.PersonForm.MainBox.CancelButton;
 import org.eclipse.scout.contacts.client.person.PersonForm.MainBox.OkButton;
 import org.eclipse.scout.contacts.shared.Icons;
+import org.eclipse.scout.contacts.shared.organization.OrganizationLookupCall;
 import org.eclipse.scout.contacts.shared.person.*;
 import org.eclipse.scout.rt.client.dto.FormData;
+import org.eclipse.scout.rt.client.ui.basic.table.columns.AbstractSmartColumn;
 import org.eclipse.scout.rt.client.ui.form.AbstractForm;
 import org.eclipse.scout.rt.client.ui.form.AbstractFormHandler;
 import org.eclipse.scout.rt.client.ui.form.IForm;
@@ -17,6 +19,7 @@ import org.eclipse.scout.rt.client.ui.form.fields.button.AbstractOkButton;
 import org.eclipse.scout.rt.client.ui.form.fields.datefield.AbstractDateField;
 import org.eclipse.scout.rt.client.ui.form.fields.groupbox.AbstractGroupBox;
 import org.eclipse.scout.rt.client.ui.form.fields.radiobuttongroup.AbstractRadioButtonGroup;
+import org.eclipse.scout.rt.client.ui.form.fields.smartfield.AbstractSmartField;
 import org.eclipse.scout.rt.client.ui.form.fields.stringfield.AbstractStringField;
 import org.eclipse.scout.rt.client.ui.form.fields.tabbox.AbstractTabBox;
 
@@ -47,6 +50,7 @@ import org.eclipse.scout.rt.platform.exception.VetoException;
 import org.eclipse.scout.rt.platform.text.TEXTS;
 import org.eclipse.scout.rt.platform.util.StringUtility;
 import org.eclipse.scout.rt.shared.services.common.code.ICodeType;
+import org.eclipse.scout.rt.shared.services.lookup.ILookupCall;
 
 @ClassId("3329750c-4428-4545-8ac5-6e85ae706f35")
 // links the form with its form data class
@@ -382,26 +386,26 @@ public class PersonForm extends AbstractForm {
                     return TEXTS.get("Work");
                 }
 
-                @Order(1000)
-                @ClassId("41cc63ca-11b0-4a8d-b049-91d5dcc3b185")
-                public class PositionField extends AbstractStringField {
-                    @Override
-                    protected String getConfiguredLabel() {
-                        return TEXTS.get("Position");
-                    }
-                }
-
-                @Order(2000)
-                @ClassId("bc676ba0-b267-48e7-a00e-d1da9f56d6a7")
-                public class OrganizationField extends AbstractStringField {
+                @Order(0)
+                @ClassId("70b3e56f-0b4b-4129-8f29-ca3d94224bd4")
+                public class OrganizationField extends AbstractSmartField<String> {
                     @Override
                     protected String getConfiguredLabel() {
                         return TEXTS.get("Organization");
                     }
 
                     @Override
-                    protected int getConfiguredMaxLength() {
-                        return 128;
+                    protected Class<? extends ILookupCall<String>> getConfiguredLookupCall() {
+                        return OrganizationLookupCall.class;
+                    }
+                }
+
+                @Order(1000)
+                @ClassId("41cc63ca-11b0-4a8d-b049-91d5dcc3b185")
+                public class PositionField extends AbstractStringField {
+                    @Override
+                    protected String getConfiguredLabel() {
+                        return TEXTS.get("Position");
                     }
                 }
 
@@ -439,14 +443,6 @@ public class PersonForm extends AbstractForm {
             public class NotesBox extends AbstractNotesBox { }
         }
 
-        /*
-        @Order(1000)
-        @ClassId("5fb055fc-4e03-4558-880d-5befd696b6ea")
-        public class GroupBox extends AbstractGroupBox {
-
-        }
-         */
-
         @Order(2000)
         @ClassId("fe77520d-e94c-46c4-af47-325433332619")
         public class OkButton extends AbstractOkButton {
@@ -470,23 +466,6 @@ public class PersonForm extends AbstractForm {
 
     public class NewHandler extends AbstractFormHandler {
 
-        /*
-        In these methods (execLoad & execStore) the form fetches data from the
-        Scout backend application and/or sends new data to the backend server.
-         */
-
-        /*
-        @Override
-        protected void execLoad() {
-            PersonFormData formData = new PersonFormData();
-            exportFormData(formData);
-            formData = BEANS.get(IPersonService.class).prepareCreate(formData);
-            importFormData(formData);
-
-            setEnabledPermission(new CreatePersonPermission());
-        }
-        */
-
         @Override
         protected void execStore() {
             IPersonService service = BEANS.get(IPersonService.class);
@@ -498,6 +477,11 @@ public class PersonForm extends AbstractForm {
     }
 
     public class ModifyHandler extends AbstractFormHandler {
+
+        /*
+        In these methods (execLoad & execStore) the form fetches data from the
+        Scout backend application and/or sends new data to the backend server.
+        */
         @Override
         protected void execLoad() {
             IPersonService service = BEANS.get(IPersonService.class);

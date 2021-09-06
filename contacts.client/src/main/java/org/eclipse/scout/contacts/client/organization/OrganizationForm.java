@@ -64,6 +64,14 @@ public class OrganizationForm extends AbstractForm {
         return IForm.DISPLAY_HINT_VIEW;
     }
 
+    public void startModify() {
+        startInternalExclusive(new ModifyHandler());
+    }
+
+    public void startNew() {
+        startInternal(new NewHandler());
+    }
+
     @Override
     protected void execInitForm() {
         BEANS.get(ContactsHelper.class).handleReadOnly(getOkButton());
@@ -226,27 +234,7 @@ public class OrganizationForm extends AbstractForm {
         }
     }
 
-    public void startModify() {
-        startInternalExclusive(new ModifyHandler());
-    }
-
-    public void startNew() {
-        startInternal(new NewHandler());
-    }
-
     public class NewHandler extends AbstractFormHandler {
-
-        /*
-        @Override
-        protected void execLoad() {
-            OrganizationFormData formData = new OrganizationFormData();
-            exportFormData(formData);
-            formData = BEANS.get(IOrganizationService.class).prepareCreate(formData);
-            importFormData(formData);
-
-            setEnabledPermission(new CreateOrganizationPermission());
-        }
-         */
 
         @Override
         protected void execStore() {
