@@ -80,7 +80,7 @@ public abstract class AbstractUrlImageField extends AbstractImageField {
             PictureUrlForm form = new PictureUrlForm();
             String oldUrl = getUrl();
 
-            // if we already have an URL for the picture prefill it in the form
+            // if we already have an URL for the picture pre-fill it in the form
             if (StringUtility.hasText(oldUrl)) {
                 form.getUrlField().setValue(oldUrl);
             }

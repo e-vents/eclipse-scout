@@ -1,15 +1,13 @@
 package org.eclipse.scout.contacts.client.person;
 
-import org.eclipse.scout.contacts.client.common.AbstractAddressBox;
-import org.eclipse.scout.contacts.client.common.AbstractEmailField;
-import org.eclipse.scout.contacts.client.common.AbstractNotesBox;
-import org.eclipse.scout.contacts.client.common.AbstractUrlImageField;
+import org.eclipse.scout.contacts.client.common.*;
 import org.eclipse.scout.contacts.client.person.PersonForm.MainBox.CancelButton;
 import org.eclipse.scout.contacts.client.person.PersonForm.MainBox.OkButton;
 import org.eclipse.scout.contacts.shared.Icons;
 import org.eclipse.scout.contacts.shared.organization.OrganizationLookupCall;
 import org.eclipse.scout.contacts.shared.person.*;
 import org.eclipse.scout.rt.client.dto.FormData;
+import org.eclipse.scout.rt.client.ui.action.menu.IMenu;
 import org.eclipse.scout.rt.client.ui.basic.table.columns.AbstractSmartColumn;
 import org.eclipse.scout.rt.client.ui.form.AbstractForm;
 import org.eclipse.scout.rt.client.ui.form.AbstractFormHandler;
@@ -49,6 +47,7 @@ import org.eclipse.scout.rt.platform.classid.ClassId;
 import org.eclipse.scout.rt.platform.exception.VetoException;
 import org.eclipse.scout.rt.platform.text.TEXTS;
 import org.eclipse.scout.rt.platform.util.StringUtility;
+import org.eclipse.scout.rt.platform.util.collection.OrderedCollection;
 import org.eclipse.scout.rt.shared.services.common.code.ICodeType;
 import org.eclipse.scout.rt.shared.services.lookup.ILookupCall;
 
@@ -202,12 +201,10 @@ public class PersonForm extends AbstractForm {
     @ClassId("c1d2d806-5fad-48a9-9095-3f4af7574191")
     public class MainBox extends AbstractGroupBox {
 
-        /*
         @Override
         protected void injectMenusInternal(OrderedCollection<IMenu> menus) {
             BEANS.get(ContactsHelper.class).injectReadOnlyMenu(menus);
         }
-         */
 
         // upper part (green)
         @Order(0)
