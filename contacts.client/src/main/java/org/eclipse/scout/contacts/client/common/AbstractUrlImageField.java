@@ -80,13 +80,17 @@ public abstract class AbstractUrlImageField extends AbstractImageField {
             PictureUrlForm form = new PictureUrlForm();
             String oldUrl = getUrl();
 
+            // if we already have an URL for the picture prefill it in the form
             if (StringUtility.hasText(oldUrl)) {
                 form.getUrlField().setValue(oldUrl);
             }
 
             form.startModify();
+            // awaitFor makes the app wait until the user has closed the form
             form.waitFor();
 
+            // only store the new URl if the user has saved a new value
+            // storing the value will refresh the picture in the UI
             if (form.isFormStored()) {
                 setUrl(form.getUrlField().getValue());
                 getForm().touch();

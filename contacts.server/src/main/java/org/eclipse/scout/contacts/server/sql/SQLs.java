@@ -200,14 +200,14 @@ public interface SQLs {
       + "         :phone, "
       + "         :mobile, "
       + "         :email, "
-      + "         :street, "
-      + "         :city, "
-      + "         :country, "
+      + "         :addressBox.street, "
+      + "         :addressBox.city, "
+      + "         :addressBox.country, "
       + "         :position, "
       + "         :organization, "
       + "         :phoneWork, "
       + "         :emailWork, "
-      + "         :notes";
+      + "         :notesBox.notes";
 
   String PERSON_UPDATE = ""
       + "UPDATE   PERSON "
@@ -219,14 +219,14 @@ public interface SQLs {
       + "         phone  = :phone, "
       + "         mobile = :mobile, "
       + "         email = :email, "
-      + "         street = :street, "
-      + "         city = :city, "
-      + "         country = :country, "
+      + "         street = :addressBox.street, "
+      + "         city = :addressBox.city, "
+      + "         country = :addressBox.country, "
       + "         position = :position, "
       + "         organization_id = :organization, "
       + "         phone_work = :phoneWork, "
       + "         email_work = :emailWork, "
-      + "         notes = :notes "
+      + "         notes = :notesBox.notes "
       + "WHERE    person_id = :personId";
 
   String ORGANIZATION_INSERT_SAMPLE = ""

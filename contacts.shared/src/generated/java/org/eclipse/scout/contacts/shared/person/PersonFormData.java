@@ -1,5 +1,7 @@
 package org.eclipse.scout.contacts.shared.person;
 
+import org.eclipse.scout.contacts.shared.common.AbstractAddressBoxData;
+import org.eclipse.scout.contacts.shared.common.AbstractNotesBoxData;
 import org.eclipse.scout.contacts.shared.common.AbstractUrlImageFieldData;
 import org.eclipse.scout.rt.platform.classid.ClassId;
 import org.eclipse.scout.rt.shared.data.form.AbstractFormData;
@@ -18,12 +20,8 @@ import java.util.Date;
 public class PersonFormData extends AbstractFormData {
     private static final long serialVersionUID = 1L;
 
-    public City getCity() {
-        return getFieldByClass(City.class);
-    }
-
-    public Country getCountry() {
-        return getFieldByClass(Country.class);
+    public AddressBox getAddressBox() {
+        return getFieldByClass(AddressBox.class);
     }
 
     public DateOfBirth getDateOfBirth() {
@@ -54,8 +52,8 @@ public class PersonFormData extends AbstractFormData {
         return getFieldByClass(Mobile.class);
     }
 
-    public Notes getNotes() {
-        return getFieldByClass(Notes.class);
+    public NotesBox getNotesBox() {
+        return getFieldByClass(NotesBox.class);
     }
 
     public Organization getOrganization() {
@@ -100,17 +98,8 @@ public class PersonFormData extends AbstractFormData {
         return getFieldByClass(Position.class);
     }
 
-    public Street getStreet() {
-        return getFieldByClass(Street.class);
-    }
-
-    @ClassId("65c84303-37b4-474a-a0c2-65f49c827359-formdata")
-    public static class City extends AbstractValueFieldData<String> {
-        private static final long serialVersionUID = 1L;
-    }
-
-    @ClassId("d8bdcd9b-47fb-4855-8d8f-6cf4b95c605a-formdata")
-    public static class Country extends AbstractValueFieldData<String> {
+    @ClassId("214592d2-ca84-446c-aab0-18d4db588385-formdata")
+    public static class AddressBox extends AbstractAddressBoxData {
         private static final long serialVersionUID = 1L;
     }
 
@@ -149,8 +138,8 @@ public class PersonFormData extends AbstractFormData {
         private static final long serialVersionUID = 1L;
     }
 
-    @ClassId("338a5671-b3e9-4c9c-b3e2-56c213129a39-formdata")
-    public static class Notes extends AbstractValueFieldData<String> {
+    @ClassId("34dba19e-c98f-4d39-ba97-99a868978412-formdata")
+    public static class NotesBox extends AbstractNotesBoxData {
         private static final long serialVersionUID = 1L;
     }
 
@@ -185,11 +174,6 @@ public class PersonFormData extends AbstractFormData {
 
     @ClassId("41cc63ca-11b0-4a8d-b049-91d5dcc3b185-formdata")
     public static class Position extends AbstractValueFieldData<String> {
-        private static final long serialVersionUID = 1L;
-    }
-
-    @ClassId("80a1e7ea-9e7e-495b-94b0-3ecb7dc19fb4-formdata")
-    public static class Street extends AbstractValueFieldData<String> {
         private static final long serialVersionUID = 1L;
     }
 }
