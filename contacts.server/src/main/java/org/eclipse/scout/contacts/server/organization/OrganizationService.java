@@ -26,11 +26,6 @@ public class OrganizationService implements IOrganizationService {
     }
 
     @Override
-    public OrganizationFormData prepareCreate(OrganizationFormData formData) {
-        return null;
-    }
-
-    @Override
     public OrganizationFormData create(OrganizationFormData formData) {
         if (!ACCESS.check(new CreateOrganizationPermission())) {
             throw new VetoException(TEXTS.get("AuthorizationFailed"));
@@ -41,7 +36,7 @@ public class OrganizationService implements IOrganizationService {
         }
 
         SQL.insert(SQLs.ORGANIZATION_INSERT, formData);
-        return formData;
+        return store(formData);
     }
 
     @Override

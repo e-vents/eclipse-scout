@@ -13,7 +13,6 @@ import org.eclipse.scout.contacts.client.organization.OrganizationForm.MainBox.G
 import org.eclipse.scout.contacts.client.organization.OrganizationForm.MainBox.GeneralBox.NameField;
 import org.eclipse.scout.contacts.client.organization.OrganizationForm.MainBox.GeneralBox.PictureField;
 import org.eclipse.scout.contacts.client.organization.OrganizationForm.MainBox.OkButton;
-import org.eclipse.scout.contacts.shared.organization.CreateOrganizationPermission;
 import org.eclipse.scout.contacts.shared.organization.IOrganizationService;
 import org.eclipse.scout.contacts.shared.organization.OrganizationFormData;
 import org.eclipse.scout.contacts.shared.organization.UpdateOrganizationPermission;
@@ -198,8 +197,7 @@ public class OrganizationForm extends AbstractForm {
 
                 @Order(10)
                 @ClassId("2a10bd00-de56-4a97-a5b2-6a8a0aae925f")
-                public class AddressBox extends AbstractAddressBox {
-                }
+                public class AddressBox extends AbstractAddressBox { }
 
                 @Order(20)
                 @ClassId("504a4845-d307-4238-a2e9-9e785c1477ac")
@@ -213,14 +211,12 @@ public class OrganizationForm extends AbstractForm {
 
                 @Order(30)
                 @ClassId("0b4d059d-ec81-4e93-9a99-2512d734ebac")
-                public class EmailField extends AbstractEmailField {
-                }
+                public class EmailField extends AbstractEmailField { }
             }
 
             @Order(20)
             @ClassId("85f4dfb0-f375-4e90-be92-b59e9bc2ebcf")
-            public class NotesBox extends AbstractNotesBox {
-            }
+            public class NotesBox extends AbstractNotesBox { }
         }
 
         @Order(30)

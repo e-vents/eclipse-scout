@@ -23,7 +23,6 @@ public class OrganizationFormTest {
     @Before
     public void setup() {
         OrganizationFormData answer = new OrganizationFormData();
-        Mockito.when(m_mockSvc.prepareCreate(ArgumentMatchers.any())).thenReturn(answer);
         Mockito.when(m_mockSvc.create(ArgumentMatchers.any())).thenReturn(answer);
         Mockito.when(m_mockSvc.load(ArgumentMatchers.any())).thenReturn(answer);
         Mockito.when(m_mockSvc.store(ArgumentMatchers.any())).thenReturn(answer);

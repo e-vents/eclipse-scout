@@ -8,8 +8,6 @@ import org.eclipse.scout.rt.shared.services.common.jdbc.SearchFilter;
 public interface IOrganizationService extends IService {
     OrganizationTablePageData getOrganizationTableData(SearchFilter filter);
 
-    OrganizationFormData prepareCreate(OrganizationFormData formData);
-
     OrganizationFormData create(OrganizationFormData formData);
 
     OrganizationFormData load(OrganizationFormData formData);
