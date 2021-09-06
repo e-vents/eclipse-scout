@@ -1,5 +1,8 @@
 package org.eclipse.scout.contacts.server.security;
 
+import org.eclipse.scout.contacts.shared.organization.CreateOrganizationPermission;
+import org.eclipse.scout.contacts.shared.organization.ReadOrganizationPermission;
+import org.eclipse.scout.contacts.shared.organization.UpdateOrganizationPermission;
 import org.eclipse.scout.contacts.shared.person.CreatePersonPermission;
 import org.eclipse.scout.contacts.shared.person.ReadPersonPermission;
 import org.eclipse.scout.contacts.shared.person.UpdatePersonPermission;
@@ -25,6 +28,9 @@ public class ServerAccessControlService extends AccessControlService {
     permissions.add(new UpdatePersonPermission(), PermissionLevel.ALL);
     permissions.add(new CreatePersonPermission(), PermissionLevel.ALL);
 
+    permissions.add(new ReadOrganizationPermission(), PermissionLevel.ALL);
+    permissions.add(new UpdateOrganizationPermission(), PermissionLevel.ALL);
+    permissions.add(new CreateOrganizationPermission(), PermissionLevel.ALL);
     //TODO [pha]: Fill access control service - or replace this default implementation by simply return BEANS.get(AllPermissionCollection.class)
 
     permissions.setReadOnly();

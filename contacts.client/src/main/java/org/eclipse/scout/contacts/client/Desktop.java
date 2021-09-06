@@ -1,6 +1,7 @@
 package org.eclipse.scout.contacts.client;
 
 import org.eclipse.scout.contacts.client.contact.ContactOutline;
+import org.eclipse.scout.contacts.client.organization.OrganizationForm;
 import org.eclipse.scout.contacts.client.person.PersonForm;
 import org.eclipse.scout.contacts.client.search.SearchOutline;
 import org.eclipse.scout.contacts.shared.Icons;
@@ -115,6 +116,20 @@ public class Desktop extends AbstractDesktop {
             @Override
             protected void execAction() {
                 new PersonForm().startNew();
+            }
+        }
+
+        @Order(2000)
+        @ClassId("bfcb1f1b-8d71-490e-a249-b8ce0d884634")
+        public class NewOrganizationMenu extends AbstractMenu {
+            @Override
+            protected String getConfiguredText() {
+                return TEXTS.get("NewOrganizationMenu");
+            }
+
+            @Override
+            protected void execAction() {
+                new OrganizationForm().startNew();
             }
         }
     }

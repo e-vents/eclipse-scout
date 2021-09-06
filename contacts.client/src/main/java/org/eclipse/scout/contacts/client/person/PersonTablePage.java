@@ -98,6 +98,8 @@ public class PersonTablePage extends AbstractPageWithTable<Table> {
             protected void execAction() {
                 PersonForm form = new PersonForm();
                 form.addFormListener(new PersonFormListener());
+
+                form.startNew();
             }
         }
 

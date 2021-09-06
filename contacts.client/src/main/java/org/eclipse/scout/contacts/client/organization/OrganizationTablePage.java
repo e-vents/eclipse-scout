@@ -1,17 +1,27 @@
 package org.eclipse.scout.contacts.client.organization;
 
 import org.eclipse.scout.contacts.client.organization.OrganizationTablePage.Table;
+import org.eclipse.scout.contacts.client.person.PersonTablePage;
+import org.eclipse.scout.contacts.shared.Icons;
 import org.eclipse.scout.contacts.shared.organization.IOrganizationService;
 import org.eclipse.scout.contacts.shared.organization.OrganizationTablePageData;
 import org.eclipse.scout.rt.client.dto.Data;
+import org.eclipse.scout.rt.client.ui.action.menu.AbstractMenu;
+import org.eclipse.scout.rt.client.ui.action.menu.IMenu;
+import org.eclipse.scout.rt.client.ui.action.menu.IMenuType;
+import org.eclipse.scout.rt.client.ui.action.menu.TableMenuType;
 import org.eclipse.scout.rt.client.ui.basic.table.AbstractTable;
 import org.eclipse.scout.rt.client.ui.basic.table.columns.AbstractStringColumn;
 import org.eclipse.scout.rt.client.ui.desktop.outline.pages.AbstractPageWithTable;
+import org.eclipse.scout.rt.client.ui.form.FormEvent;
 import org.eclipse.scout.rt.platform.BEANS;
 import org.eclipse.scout.rt.platform.Order;
 import org.eclipse.scout.rt.platform.classid.ClassId;
 import org.eclipse.scout.rt.platform.text.TEXTS;
+import org.eclipse.scout.rt.platform.util.CollectionUtility;
 import org.eclipse.scout.rt.shared.services.common.jdbc.SearchFilter;
+
+import java.util.Set;
 
 @Data(OrganizationTablePageData.class)
 @ClassId("9a4830e3-c5c7-47bc-b689-8318f4181866")
@@ -37,24 +47,63 @@ public class OrganizationTablePage extends AbstractPageWithTable<Table> {
     @ClassId("af0a3771-e675-403e-bc57-be9c82063b64")
     public class Table extends AbstractTable {
 
-        public CityColumn getCityColumn() {
-            return getColumnSet().getColumnByClass(CityColumn.class);
+        @Override
+        protected Class<? extends IMenu> getConfiguredDefaultMenu() {
+            return OrganizationTablePage.Table.EditMenu.class;
         }
 
-        public CountryColumn getCountryColumn() {
-            return getColumnSet().getColumnByClass(CountryColumn.class);
+        @Order(1000)
+        @ClassId("2ce3d286-04ec-4eb2-92bb-fec924186cf1")
+        public class EditMenu extends AbstractMenu {
+
+            @Override
+            protected String getConfiguredText() {
+                return TEXTS.get("Edit");
+            }
+
+            @Override
+            protected void execAction() {
+                final OrganizationForm form = new OrganizationForm();
+                form.setOrganizationId(getOrganizationIdColumn().getSelectedValue());
+                /*
+                form.addFormListener(e -> {
+                    if (FormEvent.TYPE_CLOSED == e.getType() && form.isFormStored()) {
+                        reloadPage();
+                    }
+                });
+                 */
+
+                form.startModify();
+            }
         }
 
-        public HomepageColumn getHomepageColumn() {
-            return getColumnSet().getColumnByClass(HomepageColumn.class);
-        }
+        @Order(2000)
+        @ClassId("ae6303f0-0041-4545-a49b-dc7f6fd23666")
+        public class NewMenu extends AbstractMenu {
 
-        public NameColumn getNameColumn() {
-            return getColumnSet().getColumnByClass(NameColumn.class);
-        }
+            @Override
+            protected String getConfiguredText() {
+                return TEXTS.get("New");
+            }
 
-        public OrganizationIdColumn getOrganizationIdColumn() {
-            return getColumnSet().getColumnByClass(OrganizationIdColumn.class);
+            @Override
+            protected Set<? extends IMenuType> getConfiguredMenuTypes() {
+                // Including TableMenuType.EmptySpace in the return value activates the "New" menu even when no row is selected.
+                return CollectionUtility.<IMenuType> hashSet(TableMenuType.EmptySpace, TableMenuType.SingleSelection);
+            }
+
+            @Override
+            protected void execAction() {
+                final OrganizationForm form = new OrganizationForm();
+                /*
+                form.addFormListener(e -> {
+                    if (FormEvent.TYPE_CLOSED == e.getType() && form.isFormStored()) {
+                        reloadPage();
+                    }
+                });
+                 */
+                form.startNew();
+            }
         }
 
         @Order(0)
@@ -141,5 +190,37 @@ public class OrganizationTablePage extends AbstractPageWithTable<Table> {
                 return 100;
             }
         }
+
+        public CityColumn getCityColumn() {
+            return getColumnSet().getColumnByClass(CityColumn.class);
+        }
+
+        public CountryColumn getCountryColumn() {
+            return getColumnSet().getColumnByClass(CountryColumn.class);
+        }
+
+        public HomepageColumn getHomepageColumn() {
+            return getColumnSet().getColumnByClass(HomepageColumn.class);
+        }
+
+        public NameColumn getNameColumn() {
+            return getColumnSet().getColumnByClass(NameColumn.class);
+        }
+
+        public OrganizationIdColumn getOrganizationIdColumn() {
+            return getColumnSet().getColumnByClass(OrganizationIdColumn.class);
+        }
+    }
+
+    // TODO: change to correct icon
+    @Override
+    protected String getConfiguredIconId() {
+        return Icons.CircleSolid;
+    }
+
+    // TODO: change to correct icon
+    @Override
+    protected String getConfiguredOverviewIconId() {
+        return Icons.Star;
     }
 }
