@@ -1,7 +1,6 @@
 package org.eclipse.scout.contacts.client.organization;
 
 import org.eclipse.scout.contacts.client.organization.OrganizationTablePage.Table;
-import org.eclipse.scout.contacts.shared.Icons;
 import org.eclipse.scout.contacts.shared.organization.IOrganizationService;
 import org.eclipse.scout.contacts.shared.organization.OrganizationTablePageData;
 import org.eclipse.scout.rt.client.dto.Data;
@@ -27,13 +26,6 @@ import java.util.Set;
 @Data(OrganizationTablePageData.class)
 @ClassId("9a4830e3-c5c7-47bc-b689-8318f4181866")
 public class OrganizationTablePage extends AbstractPageWithTable<Table> {
-
-    /*
-    @Override
-    protected boolean getConfiguredLeaf() {
-        return true;
-    }
-     */
 
     @Override
     protected IPage<?> execCreateChildPage(ITableRow row) {

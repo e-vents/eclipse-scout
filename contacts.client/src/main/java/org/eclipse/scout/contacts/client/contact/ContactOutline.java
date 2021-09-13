@@ -2,14 +2,13 @@ package org.eclipse.scout.contacts.client.contact;
 
 import java.util.List;
 
+import org.eclipse.scout.contacts.shared.Icons;
 import org.eclipse.scout.contacts.client.organization.OrganizationTablePage;
 import org.eclipse.scout.contacts.client.person.PersonTablePage;
 import org.eclipse.scout.rt.platform.Order;
 import org.eclipse.scout.rt.client.ui.desktop.outline.AbstractOutline;
 import org.eclipse.scout.rt.client.ui.desktop.outline.pages.IPage;
 import org.eclipse.scout.rt.platform.text.TEXTS;
-
-import org.eclipse.scout.contacts.shared.Icons;
 
 /**
  * @author pha

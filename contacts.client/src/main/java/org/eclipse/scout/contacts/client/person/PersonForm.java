@@ -8,7 +8,6 @@ import org.eclipse.scout.contacts.shared.organization.OrganizationLookupCall;
 import org.eclipse.scout.contacts.shared.person.*;
 import org.eclipse.scout.rt.client.dto.FormData;
 import org.eclipse.scout.rt.client.ui.action.menu.IMenu;
-import org.eclipse.scout.rt.client.ui.basic.table.columns.AbstractSmartColumn;
 import org.eclipse.scout.rt.client.ui.form.AbstractForm;
 import org.eclipse.scout.rt.client.ui.form.AbstractFormHandler;
 import org.eclipse.scout.rt.client.ui.form.IForm;
@@ -103,95 +102,6 @@ public class PersonForm extends AbstractForm {
     @Override
     protected String getConfiguredTitle() {
         return TEXTS.get("Person");
-    }
-
-    public AddressBox getAddressBox() {
-        return getFieldByClass(AddressBox.class);
-    }
-
-    public MainBox getMainBox() {
-        return getFieldByClass(MainBox.class);
-    }
-
-    public OkButton getOkButton() {
-        return getFieldByClass(OkButton.class);
-    }
-
-    public CancelButton getCancelButton() {
-        return getFieldByClass(CancelButton.class);
-    }
-
-
-    public ContactInfoBox getContactInfoBox() {
-        return getFieldByClass(ContactInfoBox.class);
-    }
-
-    public DateOfBirthField getDateOfBirthField() {
-        return getFieldByClass(DateOfBirthField.class);
-    }
-
-    public DetailsBox getDetailsBox() {
-        return getFieldByClass(DetailsBox.class);
-    }
-
-    public EmailWorkField getEmailWorkField() {
-        return getFieldByClass(EmailWorkField.class);
-    }
-
-    public FirstNameField getFirstNameField() {
-        return getFieldByClass(FirstNameField.class);
-    }
-
-    public GenderGroup getGenderGroup() {
-        return getFieldByClass(GenderGroup.class);
-    }
-
-    public GeneralBox getGeneralBox() {
-        return getFieldByClass(GeneralBox.class);
-    }
-
-    public LastNameField getLastNameField() {
-        return getFieldByClass(LastNameField.class);
-    }
-
-    public MobileField getMobileField() {
-        return getFieldByClass(MobileField.class);
-    }
-
-    public EmailField getEmailField() {
-        return getFieldByClass(EmailField.class);
-    }
-
-    public PhoneField getPhoneField() {
-        return getFieldByClass(PhoneField.class);
-    }
-
-    public NotesBox getNotesBox() {
-        return getFieldByClass(NotesBox.class);
-    }
-
-    public OrganizationField getOrganizationField() {
-        return getFieldByClass(OrganizationField.class);
-    }
-
-    public PhoneWorkField getPhoneWorkField() {
-        return getFieldByClass(PhoneWorkField.class);
-    }
-
-    public WorkBox getWorkBox() {
-        return getFieldByClass(WorkBox.class);
-    }
-
-    public PictureField getPictureField() {
-        return getFieldByClass(PictureField.class);
-    }
-
-    public PositionField getPositionField() {
-        return getFieldByClass(PositionField.class);
-    }
-
-    public PictureUrlField getPictureUrlField() {
-        return getFieldByClass(PictureUrlField.class);
     }
 
     /*
@@ -442,15 +352,11 @@ public class PersonForm extends AbstractForm {
 
         @Order(2000)
         @ClassId("fe77520d-e94c-46c4-af47-325433332619")
-        public class OkButton extends AbstractOkButton {
-
-        }
+        public class OkButton extends AbstractOkButton { }
 
         @Order(3000)
         @ClassId("bb9e8426-cde1-4f9e-85a4-e795362c96b0")
-        public class CancelButton extends AbstractCancelButton {
-
-        }
+        public class CancelButton extends AbstractCancelButton { }
     }
 
     public void startModify() {
@@ -474,7 +380,6 @@ public class PersonForm extends AbstractForm {
     }
 
     public class ModifyHandler extends AbstractFormHandler {
-
         /*
         In these methods (execLoad & execStore) the form fetches data from the
         Scout backend application and/or sends new data to the backend server.
@@ -503,5 +408,93 @@ public class PersonForm extends AbstractForm {
         return StringUtility.join(" ",
             getFirstNameField().getValue(),
             getLastNameField().getValue());
+    }
+
+    public AddressBox getAddressBox() {
+        return getFieldByClass(AddressBox.class);
+    }
+
+    public MainBox getMainBox() {
+        return getFieldByClass(MainBox.class);
+    }
+
+    public OkButton getOkButton() {
+        return getFieldByClass(OkButton.class);
+    }
+
+    public CancelButton getCancelButton() {
+        return getFieldByClass(CancelButton.class);
+    }
+    
+    public ContactInfoBox getContactInfoBox() {
+        return getFieldByClass(ContactInfoBox.class);
+    }
+
+    public DateOfBirthField getDateOfBirthField() {
+        return getFieldByClass(DateOfBirthField.class);
+    }
+
+    public DetailsBox getDetailsBox() {
+        return getFieldByClass(DetailsBox.class);
+    }
+
+    public EmailWorkField getEmailWorkField() {
+        return getFieldByClass(EmailWorkField.class);
+    }
+
+    public FirstNameField getFirstNameField() {
+        return getFieldByClass(FirstNameField.class);
+    }
+
+    public GenderGroup getGenderGroup() {
+        return getFieldByClass(GenderGroup.class);
+    }
+
+    public GeneralBox getGeneralBox() {
+        return getFieldByClass(GeneralBox.class);
+    }
+
+    public LastNameField getLastNameField() {
+        return getFieldByClass(LastNameField.class);
+    }
+
+    public MobileField getMobileField() {
+        return getFieldByClass(MobileField.class);
+    }
+
+    public EmailField getEmailField() {
+        return getFieldByClass(EmailField.class);
+    }
+
+    public PhoneField getPhoneField() {
+        return getFieldByClass(PhoneField.class);
+    }
+
+    public NotesBox getNotesBox() {
+        return getFieldByClass(NotesBox.class);
+    }
+
+    public OrganizationField getOrganizationField() {
+        return getFieldByClass(OrganizationField.class);
+    }
+
+    public PhoneWorkField getPhoneWorkField() {
+        return getFieldByClass(PhoneWorkField.class);
+    }
+
+    public WorkBox getWorkBox() {
+        return getFieldByClass(WorkBox.class);
+    }
+
+    public PictureField getPictureField() {
+        return getFieldByClass(PictureField.class);
+    }
+
+    public PositionField getPositionField() {
+        return getFieldByClass(PositionField.class);
+    }
+
+    public PictureUrlField getPictureUrlField() {
+        return getFieldByClass(PictureUrlField.class);
     }
 }

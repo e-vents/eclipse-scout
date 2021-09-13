@@ -58,12 +58,6 @@ public abstract class AbstractAddressBox extends AbstractGroupBox {
         return getFieldByClass(CountryField.class);
     }
 
-    /*
-    public ShowOnMapButton getShowOnMapButton() {
-        return getFieldByClass(ShowOnMapButton.class);
-    }
-     */
-
     @Order(1000)
     @ClassId("87206b83-a4e4-4bb8-a58e-2596b6dbedd3")
     public class StreetField extends AbstractStringField {
@@ -138,51 +132,6 @@ public abstract class AbstractAddressBox extends AbstractGroupBox {
             }
         }
     }
-
-    /*
-    @Order(3000)
-    @ClassId("48046a88-6089-4750-bb1b-90516247d2f9")
-    public class ShowOnMapButtonBox extends AbstractSequenceBox {
-
-        @Order(1000)
-        @ClassId("f55b3a90-d3a2-4dc9-b549-9f1ed4ac1a54")
-        public class ShowOnMapButton extends AbstractLinkButton {
-
-            @Override
-            protected String getConfiguredLabel() {
-                return TEXTS.get("ShowOnMap");
-            }
-
-            @Override
-            protected String getConfiguredIconId() {
-                return Icons.World;
-            }
-
-            @Override
-            protected Class<? extends IValueField> getConfiguredMasterField() {
-                return CountryField.class;
-            }
-
-            @Override
-            protected boolean getConfiguredMasterRequired() {
-                return true;
-            }
-
-            @Override
-            protected boolean getConfiguredProcessButton() {
-                return false;
-            }
-
-            @Override
-            protected void execClickAction() {
-                BEANS.get(MapHelper.class).showMapInNewWindow(
-                    getCountryField().getValue(),
-                    getCityField().getValue(),
-                    getStreetField().getValue());
-            }
-        }
-    }
-     */
 
     protected void verifyAllFields() {
         boolean hasStreet = StringUtility.hasText(getStreetField().getValue());

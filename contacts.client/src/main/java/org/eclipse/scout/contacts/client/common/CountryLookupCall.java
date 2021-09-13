@@ -14,16 +14,16 @@ import java.util.Locale;
  */
 public class CountryLookupCall extends LocalLookupCall<String> {
 
-  private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-  @Override
-  protected List<? extends ILookupRow<String>> execCreateLookupRows() {
-    List<LookupRow<String>> rows = new ArrayList<>();
+    @Override
+    protected List<? extends ILookupRow<String>> execCreateLookupRows() {
+        List<LookupRow<String>> rows = new ArrayList<>();
 
-    for (String countryCode : Locale.getISOCountries()) {
-      Locale country = new Locale("", countryCode);
-      rows.add(new LookupRow<>(countryCode, country.getDisplayCountry()));
+        for (String countryCode : Locale.getISOCountries()) {
+            Locale country = new Locale("", countryCode);
+            rows.add(new LookupRow<>(countryCode, country.getDisplayCountry()));
+        }
+        return rows;
     }
-    return rows;
-  }
 }

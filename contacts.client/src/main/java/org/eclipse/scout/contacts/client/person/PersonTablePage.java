@@ -59,7 +59,6 @@ public class PersonTablePage extends AbstractPageWithTable<Table> {
 
     @ClassId("c4d311d3-0e12-4c35-909f-8559442e3cb0")
     public class Table extends AbstractTable {
-
         /*
         This action gets executed when the user presses Enter on a table row or double clicks on a table row.
          */
@@ -75,13 +74,6 @@ public class PersonTablePage extends AbstractPageWithTable<Table> {
             protected String getConfiguredText() {
                 return TEXTS.get("Edit");
             }
-
-            /*
-            @Override
-            protected Set<? extends IMenuType> getConfiguredMenuTypes() {
-                return TableMenuType.SingleSelection, TableMenuType.MultiSelection);
-            }
-             */
 
             @Override
             protected void execAction() {
@@ -128,44 +120,6 @@ public class PersonTablePage extends AbstractPageWithTable<Table> {
                     reloadPage();
                 }
             }
-        }
-
-        // automatically generated getters
-        public CityColumn getCityColumn() {
-            return getColumnSet().getColumnByClass(CityColumn.class);
-        }
-
-        public CountryColumn getCountryColumn() {
-            return getColumnSet().getColumnByClass(CountryColumn.class);
-        }
-
-        public EmailColumn getEmailColumn() {
-            return getColumnSet().getColumnByClass(EmailColumn.class);
-        }
-
-        public FirstNameColumn getFirstNameColumn() {
-            return getColumnSet().getColumnByClass(FirstNameColumn.class);
-        }
-
-        public LastNameColumn getLastNameColumn() {
-            return getColumnSet().getColumnByClass(LastNameColumn.class);
-        }
-
-        public MobileColumn getMobileColumn() {
-            return getColumnSet().getColumnByClass(MobileColumn.class);
-        }
-
-        public OrganizationColumn getOrganizationColumn() {
-            return getColumnSet().getColumnByClass(OrganizationColumn.class);
-        }
-
-        // from here on generated according to the tutorial
-        public PersonIdColumn getPersonIdColumn() {
-            return getColumnSet().getColumnByClass(PersonIdColumn.class);
-        }
-
-        public PhoneColumn getPhoneColumn() {
-            return getColumnSet().getColumnByClass(PhoneColumn.class);
         }
 
         @Order(1000)
@@ -335,6 +289,42 @@ public class PersonTablePage extends AbstractPageWithTable<Table> {
             protected Class<? extends ILookupCall<String>> getConfiguredLookupCall() {
                 return OrganizationLookupCall.class;
             }
+        }
+        
+        public CityColumn getCityColumn() {
+            return getColumnSet().getColumnByClass(CityColumn.class);
+        }
+
+        public CountryColumn getCountryColumn() {
+            return getColumnSet().getColumnByClass(CountryColumn.class);
+        }
+
+        public EmailColumn getEmailColumn() {
+            return getColumnSet().getColumnByClass(EmailColumn.class);
+        }
+
+        public FirstNameColumn getFirstNameColumn() {
+            return getColumnSet().getColumnByClass(FirstNameColumn.class);
+        }
+
+        public LastNameColumn getLastNameColumn() {
+            return getColumnSet().getColumnByClass(LastNameColumn.class);
+        }
+
+        public MobileColumn getMobileColumn() {
+            return getColumnSet().getColumnByClass(MobileColumn.class);
+        }
+
+        public OrganizationColumn getOrganizationColumn() {
+            return getColumnSet().getColumnByClass(OrganizationColumn.class);
+        }
+
+        public PersonIdColumn getPersonIdColumn() {
+            return getColumnSet().getColumnByClass(PersonIdColumn.class);
+        }
+
+        public PhoneColumn getPhoneColumn() {
+            return getColumnSet().getColumnByClass(PhoneColumn.class);
         }
     }
 }

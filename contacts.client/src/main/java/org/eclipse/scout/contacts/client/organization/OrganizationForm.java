@@ -76,58 +76,6 @@ public class OrganizationForm extends AbstractForm {
         BEANS.get(ContactsHelper.class).handleReadOnly(getOkButton());
     }
 
-    public MainBox getMainBox() {
-        return getFieldByClass(MainBox.class);
-    }
-
-    public AddressBox getAddressBox() {
-        return getFieldByClass(AddressBox.class);
-    }
-
-    public CancelButton getCancelButton() {
-        return getFieldByClass(CancelButton.class);
-    }
-
-    public NotesBox getNotesBox() {
-        return getFieldByClass(NotesBox.class);
-    }
-
-    public ContactInfoBox getOrganizationDetailsBox() {
-        return getFieldByClass(ContactInfoBox.class);
-    }
-
-    public DetailsBox getDetailsBox() {
-        return getFieldByClass(DetailsBox.class);
-    }
-
-    public EmailField getEmailField() {
-        return getFieldByClass(EmailField.class);
-    }
-
-    public GeneralBox getGeneralBox() {
-        return getFieldByClass(GeneralBox.class);
-    }
-
-    public HomepageField getHomepageField() {
-        return getFieldByClass(HomepageField.class);
-    }
-
-    public PictureField getLogoField() {
-        return getFieldByClass(PictureField.class);
-    }
-
-    public NameField getNameField() {
-        return getFieldByClass(NameField.class);
-    }
-
-    public OkButton getOkButton() {
-        return getFieldByClass(OkButton.class);
-    }
-
-    public PhoneField getPhoneField() {
-        return getFieldByClass(PhoneField.class);
-    }
-
     @Order(10)
     @ClassId("e7efc084-fe7a-462f-ba23-914e58f7b82d")
     public class MainBox extends AbstractGroupBox {
@@ -259,5 +207,57 @@ public class OrganizationForm extends AbstractForm {
             formData = BEANS.get(IOrganizationService.class).store(formData);
             importFormData(formData);
         }
+    }
+
+    public MainBox getMainBox() {
+        return getFieldByClass(MainBox.class);
+    }
+
+    public AddressBox getAddressBox() {
+        return getFieldByClass(AddressBox.class);
+    }
+
+    public CancelButton getCancelButton() {
+        return getFieldByClass(CancelButton.class);
+    }
+
+    public NotesBox getNotesBox() {
+        return getFieldByClass(NotesBox.class);
+    }
+
+    public ContactInfoBox getOrganizationDetailsBox() {
+        return getFieldByClass(ContactInfoBox.class);
+    }
+
+    public DetailsBox getDetailsBox() {
+        return getFieldByClass(DetailsBox.class);
+    }
+
+    public EmailField getEmailField() {
+        return getFieldByClass(EmailField.class);
+    }
+
+    public GeneralBox getGeneralBox() {
+        return getFieldByClass(GeneralBox.class);
+    }
+
+    public HomepageField getHomepageField() {
+        return getFieldByClass(HomepageField.class);
+    }
+
+    public PictureField getLogoField() {
+        return getFieldByClass(PictureField.class);
+    }
+
+    public NameField getNameField() {
+        return getFieldByClass(NameField.class);
+    }
+
+    public OkButton getOkButton() {
+        return getFieldByClass(OkButton.class);
+    }
+
+    public PhoneField getPhoneField() {
+        return getFieldByClass(PhoneField.class);
     }
 }

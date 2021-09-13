@@ -27,14 +27,6 @@ public class PictureUrlForm extends AbstractForm {
         startInternal(new ModifyHandler());
     }
 
-    public UrlField getUrlField() {
-        return getFieldByClass(UrlField.class);
-    }
-
-    public InfoField getInfoField() {
-        return getFieldByClass(InfoField.class);
-    }
-
     @Order(10)
     @ClassId("6c5e0da2-cf04-402f-9784-43e3a138796b")
     public class MainBox extends AbstractGroupBox {
@@ -101,15 +93,20 @@ public class PictureUrlForm extends AbstractForm {
 
         @Order(20)
         @ClassId("4e15ce0e-502c-4290-aeca-e83359f3bc5b")
-        public class OkButton extends AbstractOkButton {
-        }
+        public class OkButton extends AbstractOkButton { }
 
         @Order(30)
         @ClassId("f278815a-f4cf-4e86-a057-66cb7ce43fc3")
-        public class CancelButton extends AbstractCancelButton {
-        }
+        public class CancelButton extends AbstractCancelButton { }
     }
 
-    public class ModifyHandler extends AbstractFormHandler { // <2>
+    public class ModifyHandler extends AbstractFormHandler { }
+
+    public UrlField getUrlField() {
+        return getFieldByClass(UrlField.class);
+    }
+
+    public InfoField getInfoField() {
+        return getFieldByClass(InfoField.class);
     }
 }

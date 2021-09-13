@@ -5,8 +5,6 @@ import org.eclipse.scout.rt.client.IClientSession;
 import org.eclipse.scout.rt.client.session.ClientSessionProvider;
 import org.eclipse.scout.rt.shared.services.common.code.CODES;
 
-import org.eclipse.scout.contacts.client.Desktop;
-
 /**
  * @author pha
  */
