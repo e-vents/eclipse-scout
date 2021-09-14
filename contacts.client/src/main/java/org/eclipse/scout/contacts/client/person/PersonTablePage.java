@@ -192,7 +192,7 @@ public class PersonTablePage extends AbstractPageWithTable<Table> {
 
             @Override
             protected int getConfiguredWidth() {
-                return 100;
+                return 120;
             }
         }
 
@@ -206,7 +206,7 @@ public class PersonTablePage extends AbstractPageWithTable<Table> {
 
             @Override
             protected int getConfiguredWidth() {
-                return 100;
+                return 120;
             }
 
             // this lookup call is used to map country code to the country names used in the UI

@@ -13,6 +13,7 @@ import org.eclipse.scout.rt.shared.services.common.jdbc.SearchFilter;
 import java.util.UUID;
 
 public class OrganizationService implements IOrganizationService {
+
     @Override
     public OrganizationTablePageData getOrganizationTableData(SearchFilter filter) {
 

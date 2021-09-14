@@ -131,7 +131,7 @@ public class OrganizationTablePage extends AbstractPageWithTable<Table> {
 
             @Override
             protected int getConfiguredWidth() {
-                return 100;
+                return 200;
             }
         }
 
@@ -145,7 +145,7 @@ public class OrganizationTablePage extends AbstractPageWithTable<Table> {
 
             @Override
             protected int getConfiguredWidth() {
-                return 100;
+                return 120;
             }
         }
 
@@ -159,7 +159,7 @@ public class OrganizationTablePage extends AbstractPageWithTable<Table> {
 
             @Override
             protected int getConfiguredWidth() {
-                return 100;
+                return 120;
             }
         }
 
@@ -173,7 +173,7 @@ public class OrganizationTablePage extends AbstractPageWithTable<Table> {
 
             @Override
             protected int getConfiguredWidth() {
-                return 100;
+                return 120;
             }
         }
 
@@ -192,7 +192,7 @@ public class OrganizationTablePage extends AbstractPageWithTable<Table> {
 
             @Override
             protected int getConfiguredWidth() {
-                return 100;
+                return 120;
             }
         }
 

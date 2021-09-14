@@ -17,7 +17,7 @@ import org.eclipse.scout.rt.platform.util.StringUtility;
 import org.eclipse.scout.rt.shared.services.lookup.ILookupCall;
 
 @ClassId("d03c9495-530b-4bad-8b05-414ff7edce7a")
-@FormData(value = AbstractAddressBoxData.class, // <1>
+@FormData(value = AbstractAddressBoxData.class,
     sdkCommand = SdkCommand.CREATE,
     defaultSubtypeSdkCommand = DefaultSubtypeSdkCommand.CREATE)
 public abstract class AbstractAddressBox extends AbstractGroupBox {

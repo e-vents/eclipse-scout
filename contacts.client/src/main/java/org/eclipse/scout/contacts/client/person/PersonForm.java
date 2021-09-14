@@ -55,6 +55,9 @@ import org.eclipse.scout.rt.shared.services.lookup.ILookupCall;
 @FormData(value = PersonFormData.class, sdkCommand = FormData.SdkCommand.CREATE)
 public class PersonForm extends AbstractForm {
 
+    // represents the person's primary key
+    private String personId;
+
     @Override
     protected boolean execValidate() {
         boolean noFirstName = StringUtility.isNullOrEmpty(getFirstNameField().getValue());
@@ -67,9 +70,6 @@ public class PersonForm extends AbstractForm {
         }
         return true;
     }
-
-    // represents the person's primary key
-    private String personId;
 
     @FormData // defines field as a property that will be included in the form data
     public String getPersonId() {
@@ -157,7 +157,7 @@ public class PersonForm extends AbstractForm {
                     return PictureUrlField.class;
                 }
 
-                @Override // <3>
+                @Override
                 protected void execChangedMasterValue(Object newMasterValue) {
                     updateImage((String) newMasterValue);
                 }
@@ -425,7 +425,7 @@ public class PersonForm extends AbstractForm {
     public CancelButton getCancelButton() {
         return getFieldByClass(CancelButton.class);
     }
-    
+
     public ContactInfoBox getContactInfoBox() {
         return getFieldByClass(ContactInfoBox.class);
     }
