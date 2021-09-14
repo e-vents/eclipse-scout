@@ -8,8 +8,6 @@ import org.eclipse.scout.rt.shared.services.common.jdbc.SearchFilter;
 public interface IPersonService extends IService {
     PersonTablePageData getPersonTableData(SearchFilter filter, String organizationId);
 
-    PersonFormData prepareCreate(PersonFormData formData);
-
     PersonFormData create(PersonFormData formData);
 
     PersonFormData load(PersonFormData formData);

@@ -20,7 +20,6 @@ import org.eclipse.scout.rt.server.jdbc.SQL;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-// tag::service[]
 @ApplicationScoped
 @CreateImmediately
 public class DatabaseSetupService implements IDataStoreService {
@@ -95,7 +94,7 @@ public class DatabaseSetupService implements IDataStoreService {
                 SQL.insert(SQLs.PERSON_INSERT_SAMPLE + SQLs.PERSON_VALUES_27);
                 SQL.insert(SQLs.PERSON_INSERT_SAMPLE + SQLs.PERSON_VALUES_28);
                 SQL.insert(SQLs.PERSON_INSERT_SAMPLE + SQLs.PERSON_VALUES_29);
-                // tag::service[]
+
                 LOG.info("Database table 'PERSON' populated with sample data");
             }
         }
@@ -103,10 +102,9 @@ public class DatabaseSetupService implements IDataStoreService {
 
     private Set<String> getExistingTables() {
         StringArrayHolder tables = new StringArrayHolder();
-        SQL.selectInto(SQLs.SELECT_TABLE_NAMES, new NVPair("result", tables)); // <1>
+        SQL.selectInto(SQLs.SELECT_TABLE_NAMES, new NVPair("result", tables));
         return CollectionUtility.hashSet(tables.getValue());
     }
-    // end::service[]
 
     @Override
     public void dropDataStore() {
@@ -119,6 +117,4 @@ public class DatabaseSetupService implements IDataStoreService {
         createOrganizationTable();
         createPersonTable();
     }
-    // tag::service[]
 }
-// end::service[]

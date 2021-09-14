@@ -32,15 +32,6 @@ public class PersonService implements IPersonService {
     }
 
     @Override
-    public PersonFormData prepareCreate(PersonFormData formData) {
-        if (!ACCESS.check(new CreatePersonPermission())) {
-            throw new VetoException(TEXTS.get("AuthorizationFailed"));
-        }
-// TODO [pha] add business logic here.
-        return formData;
-    }
-
-    @Override
     public PersonFormData create(PersonFormData formData) {
         if (!ACCESS.check(new CreatePersonPermission())) {
             throw new VetoException(TEXTS.get("AuthorizationFailed"));

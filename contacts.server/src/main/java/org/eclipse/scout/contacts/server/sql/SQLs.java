@@ -10,10 +10,7 @@
  */
 package org.eclipse.scout.contacts.server.sql;
 
-//tag::createDB[]
-//tag::organizationListing[]
 public interface SQLs {
-  //end::organizationListing[]
 
   String SELECT_TABLE_NAMES = ""
       + "SELECT   UPPER(tablename) "
@@ -55,7 +52,6 @@ public interface SQLs {
       + "          notes VARCHAR(1024), "
       + "          CONSTRAINT ORGANIZATION_FK FOREIGN KEY (organization_id) REFERENCES ORGANIZATION (organization_id)"
       + "         )";
-// end::createDB[]
 
   String PERSON_LOOKUP = ""
       + "SELECT   person_id, "
@@ -75,7 +71,6 @@ public interface SQLs {
       + "</text>"
       + "<all> </all>";
 
-  //tag::lookupService[]
   String ORGANIZATION_LOOKUP = ""
       + "SELECT   organization_id, "
       + "         name "
@@ -647,9 +642,4 @@ public interface SQLs {
 
   String PERSON_DROP_TABLE = "DROP TABLE PERSON";
   String ORGANIZATION_DROP_TABLE = "DROP TABLE ORGANIZATION";
-
-  // tag::organizationListing[]
-  // tag::createDB[]
 }
-// end::createDB[]
-// end::organizationListing[]

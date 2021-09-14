@@ -18,12 +18,11 @@ import org.mockito.Mockito;
 public class PersonFormTest {
     @BeanMock
     private IPersonService m_mockSvc;
-// TODO [pha] add test cases
+    // TODO [pha] add test cases
 
     @Before
     public void setup() {
         PersonFormData answer = new PersonFormData();
-        Mockito.when(m_mockSvc.prepareCreate(ArgumentMatchers.any())).thenReturn(answer);
         Mockito.when(m_mockSvc.create(ArgumentMatchers.any())).thenReturn(answer);
         Mockito.when(m_mockSvc.load(ArgumentMatchers.any())).thenReturn(answer);
         Mockito.when(m_mockSvc.store(ArgumentMatchers.any())).thenReturn(answer);

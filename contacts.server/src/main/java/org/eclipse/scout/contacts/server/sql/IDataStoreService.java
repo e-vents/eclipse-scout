@@ -12,7 +12,7 @@ package org.eclipse.scout.contacts.server.sql;
 
 public interface IDataStoreService {
 
-  void dropDataStore();
+    void dropDataStore();
 
-  void createDataStore();
+    void createDataStore();
 }

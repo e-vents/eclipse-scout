@@ -20,7 +20,7 @@ import org.eclipse.scout.rt.platform.exception.PlatformExceptionTranslator;
 import org.eclipse.scout.rt.server.jdbc.derby.AbstractDerbySqlService;
 
 @Order(1950)
-// tag::service[]
+
 public class DerbySqlService extends AbstractDerbySqlService {
 
     @Override
@@ -38,4 +38,3 @@ public class DerbySqlService extends AbstractDerbySqlService {
         }
     }
 }
-// end::service[]
