@@ -1,5 +1,6 @@
 package org.eclipse.scout.contacts.client.person;
 
+import org.eclipse.scout.contacts.shared.Icons;
 import org.eclipse.scout.contacts.client.common.CountryLookupCall;
 import org.eclipse.scout.contacts.client.person.PersonTablePage.Table;
 import org.eclipse.scout.contacts.shared.organization.OrganizationLookupCall;
@@ -55,6 +56,11 @@ public class PersonTablePage extends AbstractPageWithTable<Table> {
     @Override
     protected String getConfiguredTitle() {
         return TEXTS.get("Persons");
+    }
+
+    @Override
+    protected String getConfiguredOverviewIconId() {
+        return Icons.PersonSolid;
     }
 
     @ClassId("c4d311d3-0e12-4c35-909f-8559442e3cb0")
@@ -290,7 +296,7 @@ public class PersonTablePage extends AbstractPageWithTable<Table> {
                 return OrganizationLookupCall.class;
             }
         }
-        
+
         public CityColumn getCityColumn() {
             return getColumnSet().getColumnByClass(CityColumn.class);
         }

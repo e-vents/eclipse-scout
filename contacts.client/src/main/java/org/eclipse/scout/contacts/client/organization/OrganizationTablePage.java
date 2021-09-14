@@ -1,6 +1,7 @@
 package org.eclipse.scout.contacts.client.organization;
 
 import org.eclipse.scout.contacts.client.organization.OrganizationTablePage.Table;
+import org.eclipse.scout.contacts.shared.Icons;
 import org.eclipse.scout.contacts.shared.organization.IOrganizationService;
 import org.eclipse.scout.contacts.shared.organization.OrganizationTablePageData;
 import org.eclipse.scout.rt.client.dto.Data;
@@ -45,6 +46,11 @@ public class OrganizationTablePage extends AbstractPageWithTable<Table> {
     @Override
     protected String getConfiguredTitle() {
         return TEXTS.get("Organizations");
+    }
+
+    @Override
+    protected String getConfiguredOverviewIconId() {
+        return Icons.Star;
     }
 
     @ClassId("af0a3771-e675-403e-bc57-be9c82063b64")
