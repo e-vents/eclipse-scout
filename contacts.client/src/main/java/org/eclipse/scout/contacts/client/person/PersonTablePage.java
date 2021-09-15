@@ -199,6 +199,12 @@ public class PersonTablePage extends AbstractPageWithTable<Table> {
         @Order(5000)
         @ClassId("cec61b5a-c55c-4aa2-b225-baa5af6982ec")
         public class CountryColumn extends AbstractSmartColumn<String> {
+            // lookupCall is used to map country code to the country names used in the UI
+            @Override
+            protected Class<? extends ILookupCall<String>> getConfiguredLookupCall() {
+                return CountryLookupCall.class;
+            }
+
             @Override
             protected String getConfiguredHeaderText() {
                 return TEXTS.get("Country");
@@ -207,12 +213,6 @@ public class PersonTablePage extends AbstractPageWithTable<Table> {
             @Override
             protected int getConfiguredWidth() {
                 return 120;
-            }
-
-            // this lookup call is used to map country code to the country names used in the UI
-            @Override
-            protected Class<? extends ILookupCall<String>> getConfiguredLookupCall() {
-                return CountryLookupCall.class;
             }
         }
 

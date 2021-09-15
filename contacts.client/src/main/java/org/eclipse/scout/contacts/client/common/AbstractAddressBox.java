@@ -112,6 +112,11 @@ public abstract class AbstractAddressBox extends AbstractGroupBox {
         public class CountryField extends AbstractSmartField<String> {
 
             @Override
+            protected Class<? extends ILookupCall<String>> getConfiguredLookupCall() {
+                return CountryLookupCall.class;
+            }
+
+            @Override
             protected String getConfiguredLabel() {
                 return TEXTS.get("Country");
             }
@@ -124,11 +129,6 @@ public abstract class AbstractAddressBox extends AbstractGroupBox {
             @Override
             protected byte getConfiguredLabelPosition() {
                 return LABEL_POSITION_ON_FIELD;
-            }
-
-            @Override
-            protected Class<? extends ILookupCall<String>> getConfiguredLookupCall() {
-                return CountryLookupCall.class;
             }
         }
     }

@@ -10,7 +10,7 @@ import java.util.Locale;
 
 /**
  * @author pha
- * noch genauer anschauen!
+ * lookup call with key type string
  */
 public class CountryLookupCall extends LocalLookupCall<String> {
 
@@ -22,6 +22,7 @@ public class CountryLookupCall extends LocalLookupCall<String> {
 
         for (String countryCode : Locale.getISOCountries()) {
             Locale country = new Locale("", countryCode);
+            // add a row with key = country code & display value = country name
             rows.add(new LookupRow<>(countryCode, country.getDisplayCountry()));
         }
         return rows;
