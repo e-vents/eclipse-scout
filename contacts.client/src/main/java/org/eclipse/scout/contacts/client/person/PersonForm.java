@@ -296,14 +296,15 @@ public class PersonForm extends AbstractForm {
                 @Order(0)
                 @ClassId("70b3e56f-0b4b-4129-8f29-ca3d94224bd4")
                 public class OrganizationField extends AbstractSmartField<String> {
-                    @Override
-                    protected String getConfiguredLabel() {
-                        return TEXTS.get("Organization");
-                    }
 
                     @Override
                     protected Class<? extends ILookupCall<String>> getConfiguredLookupCall() {
                         return OrganizationLookupCall.class;
+                    }
+                    
+                    @Override
+                    protected String getConfiguredLabel() {
+                        return TEXTS.get("Organization");
                     }
                 }
 
